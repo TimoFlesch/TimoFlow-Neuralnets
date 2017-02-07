@@ -1,5 +1,5 @@
 # Timoflow (WIP)
-I wrote a little neural network toolbox, which is modularized and allows you to build arbitrary MLPs with relu, sigmoid, softmax or tanh nonlinearities, multiclass xentropy, binary xentropy and xentropy_logit compound loss functions. The optimisation procedure is stochastic gradient descent (online or minibatch)  
+I wrote a little modularized neural network toolbox to build arbitrary MLPs with relu, sigmoid, softmax or tanh nonlinearities, multiclass xentropy, binary xentropy and xentropy_logit compound loss functions. The optimisation procedure is stochastic gradient descent (online or minibatch)  
 An example on how to use the toolbox is provided in example.py
 
 ## timoflow/nnet.py
@@ -13,7 +13,7 @@ an instance of a loss function.
 #### fprop
 function to perform forward propagation of an input through the entire network
 #### brop
-My bprop function is a compound of backpropagation and weight update. The error is propagated backwards and the weights of each layer are adapted accordingly, online. I hope this is ok.  
+My bprop function is a compound of backpropagation and weight update. The error is propagated backwards and the weights of each layer are adapted accordingly, online.  
 
 ### layer_modules
 Here I defined the different modules. The most common nonlinearities were implemented
