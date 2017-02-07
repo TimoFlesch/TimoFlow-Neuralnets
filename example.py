@@ -19,19 +19,18 @@ train_numSamples =                    10000    # number of samples
 train_mode       =                 'minibatch' # online vs minibatch
 
 def nnet_setup():
-        """
-        main function for neural network setup. Calls my custom "timoflow" scripts
-        OUTPUT:
-        - myModel: instance of timoflow ann with desired layer structure and loss
-        """
+    """
+    main function for neural network setup. Calls my custom "timoflow" scripts
+    OUTPUT:
+    - myModel: instance of timoflow ann with desired layer structure and loss
+    """
 
     ## here, I define a sample neural network:
     ## the network provides a function from 256 input nodes to 3 class nodes.
     ## it has two hidden relu layers with 128 & 64 nodes and a
     ## softmax activation function.
     ## as loss, I use cross entropy
-    myModel = tif.nnet.myNet({
-                            'layers':[tif.nnet.module_linear(256,128),
+    myModel = tif.nnet.myNet({'layers':[tif.nnet.module_linear(256,128),
                                         tif.nnet.module_relu(128),
                                         tif.nnet.module_linear(128,64),
                                         tif.nnet.module_relu(64),
@@ -127,7 +126,7 @@ xenTrain = []
 xenTest  = []
 logName  = ''
 
-myModel = nnet_setup(param_modelIDX)
+myModel = nnet_setup()
 tif.monitor.controlModelSetup(myModel)
 nnet_train(x_train,y_train,x_test,y_test,myModel,
             train_lrate=train_lrate,
