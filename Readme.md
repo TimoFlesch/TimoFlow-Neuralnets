@@ -1,7 +1,30 @@
-# Timoflow (WIP)
-I wrote a little modularized neural network toolbox to build arbitrary MLPs with relu, sigmoid, softmax or tanh nonlinearities, multiclass xentropy, binary xentropy and xentropy_logit compound loss functions. The optimisation procedure is stochastic gradient descent (online or minibatch)  
+# Timoflow
+I wrote a little modularized neural network toolbox that allows the user to easily implement arbitrary feed-forward MLPs.
+
+## Activation Functions 
+The following activation functions are available: 
+```
+- relu 
+- Sigmoid 
+- Softmax 
+- TanH
+``` 
+## Loss Functions 
+Furthermore, the user can choose among several loss functions:
+```
+-Binary Cross-Entropy
+-Multiclass Cross-Entropy
+-Logit-Cross-Entropy Compound
+- L2 Loss
+```
+
+## Optimisation Procedure
+The networks are optimised via stochastic gradient descent (minibatch or online)
+
+## Example
 An example on how to use the toolbox is provided in example.py
 
+<!--
 ## timoflow/nnet.py
 My neural network module
 ### class myNet
@@ -38,4 +61,4 @@ I wrote little helper functions to save and load a model, and to save the log-fi
 Helper function to evaluate the performance of a model and a wrapper to compute a confusion matrix (uses external funct.)
 
 ## timoflow/plot.py
-Some functions to plot error curves and confusion matrices
+Some functions to plot error curves and confusion matrices-->
