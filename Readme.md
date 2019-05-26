@@ -22,7 +22,17 @@ Furthermore, the user can choose among several loss functions:
 The networks are optimised via stochastic gradient descent (minibatch or online)
 
 ## Example
-An example on how to use the toolbox is provided in example.py
+An example on how to use the toolbox is provided in example.py.
+The neural network is defined as class, and the network architecture is passed as Python dictionary:
+```
+myModel = tif.nnet.myNet({'layers':[tif.nnet.module_linear(256,128),
+                                        tif.nnet.module_relu(128),
+                                        tif.nnet.module_linear(128,64),
+                                        tif.nnet.module_relu(64),
+                                        tif.nnet.module_linear(64,3),
+                                        tif.nnet.module_softmax(3)],
+                            'loss':tif.nnet.module_xent(3)})
+```
 
 <!--
 ## timoflow/nnet.py
