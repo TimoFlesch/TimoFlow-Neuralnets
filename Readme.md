@@ -3,20 +3,19 @@ I wrote a little modularized neural network toolbox that allows the user to easi
 
 ## Activation Functions 
 The following activation functions are available: 
-```
 - relu 
 - Sigmoid 
 - Softmax 
 - TanH
-``` 
+
 ## Loss Functions 
 Furthermore, the user can choose among several loss functions:
-```
--Binary Cross-Entropy
--Multiclass Cross-Entropy
--Logit-Cross-Entropy Compound
+
+- Binary Cross-Entropy
+- Multiclass Cross-Entropy
+- Logit-Cross-Entropy Compound
 - L2 Loss
-```
+
 
 ## Optimisation Procedure
 The networks are optimised via stochastic gradient descent (minibatch or online)
@@ -24,7 +23,7 @@ The networks are optimised via stochastic gradient descent (minibatch or online)
 ## Example
 An example on how to use the toolbox is provided in example.py.
 The neural network is defined as class, and the network architecture is passed as Python dictionary:
-```
+```Python
 myModel = tif.nnet.myNet({'layers':[tif.nnet.module_linear(256,128),
                                         tif.nnet.module_relu(128),
                                         tif.nnet.module_linear(128,64),
@@ -33,6 +32,20 @@ myModel = tif.nnet.myNet({'layers':[tif.nnet.module_linear(256,128),
                                         tif.nnet.module_softmax(3)],
                             'loss':tif.nnet.module_xent(3)})
 ```
+
+Once the network is initialised, a forward pass can be carried out to obtain predictions for a given input:
+```Python
+y_hat = myModel.fprop(x_in)                
+```
+To compute the loss (e.g. for plotting, call fprop function of the loss module:
+```Python
+loss = myModel.loss.fprop(y_hat,y_true)
+``` 
+Finally, to update the weights, perform backpropagation (which computes the loss internally):
+```Python
+myModel.bprop(y_hat,y_true,lrate)
+``` 
+
 
 <!--
 ## timoflow/nnet.py
